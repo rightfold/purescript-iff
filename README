@@ -1,0 +1,6 @@
+purescript-iff README
+
+purescript-iff is a PureScript library that implements functions to work with
+asynchronous computations. purescript-iff is similar to purescript-aff, but
+does not include cancellation and exception features, instead leaving
+cancellation and error handling up to the user.
