@@ -1,0 +1,10 @@
+{
+  "name": "purescript-iff",
+  "dependencies": {
+    "purescript-prelude": "~1.0.1",
+    "purescript-eff": "~1.0.0"
+  },
+  "devDependencies": {
+    "purescript-console": "~1.0.0"
+  }
+}
