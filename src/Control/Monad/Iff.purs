@@ -1,5 +1,6 @@
 module Control.Monad.Iff
 ( Iff
+, makeIff
 , launchIff
 , forkIff
 ) where
@@ -28,6 +29,9 @@ instance monadIff :: Monad (Iff eff)
 instance monadEffIff :: MonadEff eff (Iff eff) where
   liftEff = _liftEff
 
+makeIff :: forall a eff. ((a -> Eff eff Unit) -> Eff eff Unit) -> Iff eff a
+makeIff = _makeIff
+
 -- | Start an asynchronous computation but do not wait for it to finish.
 launchIff :: forall eff. Iff eff Unit -> Eff eff Unit
 launchIff = _launchIff
@@ -41,5 +45,6 @@ foreign import _apply :: forall eff a b. Iff eff (a -> b) -> Iff eff a -> Iff ef
 foreign import _pure :: forall eff a. a -> Iff eff a
 foreign import _bind :: forall eff a b. Iff eff a -> (a -> Iff eff b) -> Iff eff b
 foreign import _liftEff :: forall eff a. Eff eff a -> Iff eff a
+foreign import _makeIff :: forall a eff. ((a -> Eff eff Unit) -> Eff eff Unit) -> Iff eff a
 foreign import _launchIff :: forall eff. Iff eff Unit -> Eff eff Unit
 foreign import _forkIff :: forall eff. Iff eff Unit -> Iff eff Unit

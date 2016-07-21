@@ -20,6 +20,9 @@ main = launchIff do
 
   liftEff $ log "liftEff works"
 
+  makeIff \k -> k unit
+  liftEff $ log "makeIff works"
+
   liftEff $ log "launchIff works"
 
   forkIff do

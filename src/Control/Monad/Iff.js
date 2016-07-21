@@ -44,6 +44,16 @@ exports._liftEff = function(a) {
     };
 };
 
+exports._makeIff = function(k) {
+    return function(cb) {
+        k(function(x) {
+            return function() {
+                cb(x);
+            };
+        })();
+    };
+};
+
 exports._launchIff = function(a) {
     return function() {
         a(function() {});
