@@ -28,11 +28,11 @@ instance monadIff :: Monad (Iff eff)
 instance monadEffIff :: MonadEff eff (Iff eff) where
   liftEff = _liftEff
 
--- Start an asynchronous computation but do not wait for it to finish.
+-- | Start an asynchronous computation but do not wait for it to finish.
 launchIff :: forall eff. Iff eff Unit -> Eff eff Unit
 launchIff = _launchIff
 
--- Start an asynchronous computation but do not wait for it to finish.
+-- | Start an asynchronous computation but do not wait for it to finish.
 forkIff :: forall eff. Iff eff Unit -> Iff eff Unit
 forkIff = _forkIff
 
